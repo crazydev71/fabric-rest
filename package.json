@@ -12,7 +12,7 @@
     "node": ">=6.9.5",
     "npm": ">=3.10.10"
   },
-  "repository": "https://github.com/Altoros/fabric-rest",
+  "repository": "https://github.com/crazydev71/fabric-rest",
   "scripts": {
     "start": "node $NODE_DEBUG_OPTION index",
     "test": "export CONFIG_FILE=test/resources/network-config.json && mocha",
