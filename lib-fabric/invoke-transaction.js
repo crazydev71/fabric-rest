@@ -98,14 +98,15 @@ function invokeChaincode(peersUrls, channelID, chaincodeName, fcn, args, usernam
 
       const channelEventHub = peerListener.listenChannel(channel);
       let eventMonitor = new Promise((resolve, reject) => {
+				const tx_id_string = tx_id.getTransactionID();
         let handle = setTimeout(() => {
           // do the housekeeping when there is a problem
-          channelEventHub.unregisterTxEvent(tx_id);
+          channelEventHub.unregisterTxEvent(tx_id_string);
           logger.warn('Timeout - Failed to receive the transaction event');
           reject(new Error('Timed out waiting for block event'));
         }, parseInt(config.eventWaitTime));
 
-        channelEventHub.registerTxEvent((event_tx_id/*, status, block_num*/) => {
+        channelEventHub.registerTxEvent(tx_id_string, (event_tx_id/*, status, block_num*/) => {
             clearTimeout(handle);
             channelEventHub.unregisterTxEvent(event_tx_id);
             logger.debug('Successfully received the transaction event');
