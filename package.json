@@ -32,7 +32,7 @@
     "fs-extra": "^2.0.0",
     "jsonwebtoken": "^8.3.0",
     "log4js": "^0.6.38",
-    "socket.io": "^2.0.4"
+    "socket.io": "^2.5.0"
   },
   "devDependencies": {
     "eslint": "^5.6.0",
